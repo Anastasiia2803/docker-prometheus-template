@@ -1,0 +1,16 @@
+version: "3.9"
+services:
+  exporter:
+    image: alpine:3.19
+    command: ["/bin/sh","-c","nc -lk -p 9100 >/dev/null"]
+    ports:
+      - "9100:9100"
+
+  prometheus:
+    image: prom/prometheus:latest
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml:ro
+    ports:
+      - "9090:9090"
+    depends_on:
+      - exporter
