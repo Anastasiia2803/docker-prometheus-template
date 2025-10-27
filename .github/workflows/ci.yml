@@ -1,0 +1,10 @@
+name: compose-ci
+on: [push, pull_request]
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: docker compose config
+      - uses: ibiqlik/action-yamllint@v3
+        with: { file_or_dir: . }
