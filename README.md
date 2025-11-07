@@ -1,7 +1,6 @@
-# docker-prometheus-template
-One-command Prometheus stack for local experiments.
+![CI](https://github.com/Anastasiia2803/docker-prometheus-template/actions/workflows/compose-ci.yml/badge.svg)
 
-## Run
 ```bash
 docker compose up -d
-open http://localhost:9090
+# http://localhost:9090
+
